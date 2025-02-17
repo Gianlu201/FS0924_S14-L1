@@ -51,7 +51,19 @@ namespace FS0924_S14_L1
                             break;
 
                         case 11:
-                            loop = false;
+                            if (conto.Count > 0)
+                            {
+                                loop = false;
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine(
+                                    "\nIl carrello è vuoto, prova ad aggiungere qualcosa.."
+                                );
+                                Console.ReadKey();
+                                Console.ResetColor();
+                            }
                             break;
 
                         case > 11:
@@ -102,6 +114,8 @@ namespace FS0924_S14_L1
                 Console.WriteLine($"- {foods[i].Name} (€{foods[i].Price:0.00})");
                 sum += foods[i].Price;
             }
+            Console.WriteLine("- Servizio al tavolo €3.00");
+            sum += 3;
 
             Console.WriteLine($"\nTotal: €{sum:0.00}");
         }
